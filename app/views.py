@@ -16,4 +16,4 @@ def news_source(news_source_id):
     '''
     View news source page function that returns the news sources page and it's data
     '''
-    return render_template('newssource.html, id = news_source_id')
+    return render_template('newssource.html', id = news_source_id)
