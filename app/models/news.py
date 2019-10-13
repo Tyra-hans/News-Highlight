@@ -7,7 +7,7 @@ class News:
         self.name = name
         self.title = title
         self.description = description
-        self.url = "https://www.youtube.com/watch?v=RN75zSpYp7M"
-        self.urlToImage = "https://i.ytimg.com/vi/RN75zSpYp7M/maxresdefault.jpg"
+        self.url = "https://www.youtube.com/watch?v=RN75zSpYp7M"+ url
+        self.urlToImage = "https://i.ytimg.com/vi/RN75zSpYp7M/maxresdefault.jpg"+ urlToImage
         self.publishedAt = publishedAt
         self.content = content
