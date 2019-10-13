@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news,get_news_news
 
 #Views
 @app.route('/')
@@ -8,12 +8,13 @@ def index():
     '''
     View root page function that returns the index page and it's data
     '''
-    # getting trending news
-    popular_news = get_news('top-headlines')
-    print(popular_news)
+    # getting news sources
+    general_news = get_news()
+    print(general_news)
     
     title = 'Home - Welcome to The Know,News from any place, anytime!'
-    return render_template('index.html', title = title, popular = popular_news)
+    
+    return render_template('index.html', title = title, general = general_news)
 
 @app.route('/news/<news_source_name>')
 def news_source(news_source_name):
@@ -22,3 +23,15 @@ def news_source(news_source_name):
     View news source page function that returns the news sources page and it's data
     '''
     return render_template('newssource.html', name = news_source_name)
+
+@app.route('/news/<id>')
+def news(id):
+
+    '''
+    View news page function that returns the news details page and its data
+    '''
+
+    news = get_news_news(id)
+    title = f'{news.title}'
+
+    return render_template('news_source.html',title = title,news = news)

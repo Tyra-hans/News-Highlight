@@ -11,11 +11,11 @@ api_key = app.config['NEWS_API_KEY']
 base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_news(sources):
+def get_news():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(sources,api_key)
+    get_news_url = base_url.format(api_key)
 
     with urllib.request.urlopen(get_news_url)as url:
         get_news_data = url.read()
@@ -23,8 +23,8 @@ def get_news(sources):
 
         news_results = None
 
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
+        if get_news_response['sources']:
+            news_results_list = get_news_response['sources']
             news_results = process_results(news_results_list)
             
         
@@ -37,7 +37,7 @@ def process_results(news_list):
     '''
     Function that processes the news results and transforms them into a list of objects
     Args:
-        news_list:A list f dictionaries that contain news details
+        news_list:A list fo dictionaries that contain news details
 
     Returns :
         news_results : a list of news objects
@@ -60,8 +60,8 @@ def process_results(news_list):
     return news_results
 
 
-def get_news_news(name):
-    get_news_details_url = base_url.format(name,api_key)
+def get_news_news(id):
+    get_news_details_url = base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_news_details_url) as url:
         news_details_data = url.read()
@@ -69,7 +69,7 @@ def get_news_news(name):
 
         news_object = None
         if news_details_response:
-            name = news_details_response.get('name')
+            id = news_details_response.get('id')
             title = news_details_response.get('title')
             description = news_details_response.get('decription')
             url = news_details_response.get('url')
@@ -77,7 +77,7 @@ def get_news_news(name):
             publishedAt = news_details_response.get('publishedAt')
             content = news_details_response.get('content')
 
-            news_object = News(name,title,description,url,urlToImage,publishedAt,content)
+            news_object = News(id,title,description,url,urlToImage,publishedAt,content)
 
 
     return news_object        

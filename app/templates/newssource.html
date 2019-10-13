@@ -1,1 +1,21 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro%}
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+
+    <!-- image -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath">
+
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ news.title }}</h3>
+
+            <p class="overview"> {{ news.publishedAt }}</p>
+            <p class="ratings"> <b> {{ news.content }}</b></p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
