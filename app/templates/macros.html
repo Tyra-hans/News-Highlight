@@ -17,4 +17,19 @@
         </p>
 </div>
 
+{% endfor %} {% endmacro %} {% macro mylist(articles_list) %} {% for news in articles_list %}
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+
+    <p class="text-center">
+        <a href="/news/{{news.id}}">
+                    {{ news.author }}</a>
+    </p>
+    <p class="text-center">
+        {{ news.content | truncate (20)}}</a>
+        </li>
+        <p class="text-center">
+            {{ news.publishedAt}}</a>
+        </p>
+</div>
+
 {% endfor %} {% endmacro %}
