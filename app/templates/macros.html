@@ -3,14 +3,14 @@
 {% endfor %} {% endmacro %} -->
 
 {% macro displaynewsList(news_list) %} {% for news in news_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 card">
 
     <p class="text-center">
         <a href="/news/{{news.id}}">
                     {{ news.name }}</a>
     </p>
     <p class="text-center">
-        {{ news.description | truncate (20)}}</a>
+        {{ news.description}}</a>
         </li>
         <p class="text-center">
             {{ news.country}}</a>
@@ -18,16 +18,16 @@
 </div>
 
 {% endfor %} {% endmacro %} {% macro mylist(articles_list) %} {% for news in articles_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 card">
 
-    <p class="text-center">
+    <p class="text-center card-body">
         <a href="/news/{{news.id}}">
                     {{ news.author }}</a>
     </p>
-    <p class="text-center">
+    <p class="text-center card-body">
         {{ news.content | truncate (20)}}</a>
         </li>
-        <p class="text-center">
+        <p class="text-center card-footer ">
             {{ news.publishedAt}}</a>
         </p>
 </div>
