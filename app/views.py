@@ -8,13 +8,14 @@ def index():
     '''
     View root page function that returns the index page and it's data
     '''
-    # getting news sources
+    # getting general news sources
     general_news = get_news()
     print(general_news)
-    
-    title = 'Home - Welcome to The Know,News from any place, anytime!'
-    
-    return render_template('index.html', title = title, general = general_news)
+    for news in general_news:
+        print(news.__dict__)
+    title ='Home - Welcome to The best Movie Review Website Online'
+    return render_template('index.html', title = title, new = general_news)
+   
 
 @app.route('/news/<news_source_name>')
 def news_source(news_source_name):
@@ -25,7 +26,7 @@ def news_source(news_source_name):
     return render_template('newssource.html', name = news_source_name)
 
 @app.route('/news/<id>')
-def news(id):
+def news_news(id):
 
     '''
     View news page function that returns the news details page and its data
@@ -34,4 +35,4 @@ def news(id):
     news = get_news_news(id)
     title = f'{news.title}'
 
-    return render_template('news_source.html',title = title,news = news)
+    return render_template('newssource.html',title = title,news = news)
