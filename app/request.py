@@ -73,10 +73,11 @@ def get_news_news(id):
             name = news_details_response.get('name')
             description = news_details_response.get('decription')
             url = news_details_response.get('url')
-            category = news_details_response.get('category')
-            country = news_details_response.get('country') 
+            urlToImage = news_details_response.get('urlToImage')
+            publishedAt = news_details_response.get('publishedAt')
+            content = news_details_response.get('content') 
 
-            news_object = News(id,name,description,url,category,country)
+            news_object = News(id,name,description,url,urlToImage,publishedAt,content)
 
 
     return news_object        
