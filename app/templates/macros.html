@@ -3,7 +3,7 @@
 {% endfor %} {% endmacro %} -->
 
 {% macro displaynewsList(news_list) %} {% for news in news_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 card">
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 card ">
 
     <p class="text-center">
         <a href="/news/{{news.id}}">
@@ -13,23 +13,35 @@
         {{ news.description}}</a>
         </li>
         <p class="text-center">
-            {{ news.country}}</a>
+            country: {{ news.country}}</a>
         </p>
 </div>
 
 {% endfor %} {% endmacro %} {% macro mylist(articles_list) %} {% for news in articles_list %}
-<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 card">
-
-    <p class="text-center card-body">
-        <a href="/news/{{news.id}}">
-                    {{ news.author }}</a>
-    </p>
-    <p class="text-center card-body">
-        {{ news.content | truncate (20)}}</a>
-        </li>
-        <p class="text-center card-footer ">
-            {{ news.publishedAt}}</a>
+<div class="col-sm-12 col-md-6 col-lg-4 card ">
+    <div class='card-body'>
+        <img class="img-fluid" src=" {{news.urlToImage}} ">
+        <p class="text-center ">
+            <b>{{ news.author }}</b>
+            <hr>
         </p>
+        <p class="text-center ">
+            {{ news.content | truncate (100)}}</a>
+
+
+        </p>
+        <p class="text-center ">
+            <a href="{{news.url}} ">more
+                </a>
+        </p>
+
+        <p class="text-center ">
+            {{ news.publishedAt }}</a>
+        </p>
+
+
+    </div>
+
 </div>
 
 {% endfor %} {% endmacro %}
