@@ -17,14 +17,6 @@ def index():
     return render_template('index.html', title = title, new = general_news)
    
 
-@app.route('/news/<news_source_name>')
-def news_source(news_source_name):
-
-    '''
-    View news source page function that returns the news sources page and it's data
-    '''
-    return render_template('newssource.html', name = news_source_name)
-
 @app.route('/news/<id>')
 def news_news(id):
 
